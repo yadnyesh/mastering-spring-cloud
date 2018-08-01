@@ -38,5 +38,6 @@ public class PersonController {
 	@PutMapping
 	public void updatePerson(@RequestBody Person personToUpdate) {
 		Person existingPerson = personList.stream().filter(person -> person.getId().equals(personToUpdate.getId())).findFirst().get();
+		personList.set(personList.indexOf(existingPerson), personToUpdate);
 	}
 }
