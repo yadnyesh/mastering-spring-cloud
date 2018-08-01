@@ -1,10 +1,7 @@
 package io.yadnyesh.springcloud.controller;
 
 import io.yadnyesh.springcloud.model.Person;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,4 +21,10 @@ public class PersonController {
 		return personList.stream().filter(person -> person.getId().equals(id)).findFirst().get();
 	}
 	
+	@PostMapping
+	public Person addPerson(@RequestBody Person person) {
+		person.setId((long) personList.size()+1);
+		personList.add(person);
+		return person;
+	}
 }
