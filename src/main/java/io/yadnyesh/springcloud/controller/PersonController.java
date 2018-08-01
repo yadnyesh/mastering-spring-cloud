@@ -19,6 +19,9 @@ public class PersonController {
 		return personList;
 	}
 	
-
+	@GetMapping("/{id")
+	public Person getPersonById(@RequestParam("id") Long id) {
+		return personList.stream().filter(person -> person.getId().equals(id)).findFirst().get();
+	}
 	
 }
