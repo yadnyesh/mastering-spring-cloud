@@ -1,6 +1,5 @@
 package io.yadnyesh.springcloud.constant;
 
-import com.sun.org.apache.xerces.internal.xni.parser.XMLPullParserConfiguration;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
@@ -12,6 +11,7 @@ import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger.web.UiConfiguration;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -34,4 +34,9 @@ public class SwaggerApiDocConfig {
 				.apiInfo(builder.build());
 	}
 
+	@Bean
+	UiConfiguration uiConfiguration() {
+		return new UiConfiguration("validateUrl", "list", "alpha", "schema"
+								, UiConfiguration.Constants.DEFAULT_SUBMIT_METHODS, false, true, 60000L);
+	}
 }
