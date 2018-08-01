@@ -29,9 +29,14 @@ public class PersonController {
 		return person;
 	}
 	
+	@DeleteMapping
 	public void deletePerson(@RequestParam("id") Long existingId){
-		List<Person> personToBeDeleted = personList.stream().filter(id -> id.getId().equals(existingId)).collect(Collectors.toList());
+		List<Person> personToBeDeleted = personList.stream().filter(person -> person.getId().equals(existingId)).collect(Collectors.toList());
 		personList.removeAll(personToBeDeleted);
 	}
 	
+	@PutMapping
+	public void updatePerson(@RequestBody Person personToUpdate) {
+		Person existingPerson = personList.stream().filter(person -> person.getId().equals(personToUpdate.getId())).findFirst().get();
+	}
 }
