@@ -1,0 +1,6 @@
+logging:
+  pattern:
+#    console: "%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+    console: "%d{HH:mm} %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework.web: DEBUG
