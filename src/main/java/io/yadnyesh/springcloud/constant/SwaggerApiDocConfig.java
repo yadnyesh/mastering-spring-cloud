@@ -27,7 +27,7 @@ public class SwaggerApiDocConfig {
 				.title("Person API Microservice Documentation")
 				.description("Using Swagger to generate the documentation")
 				.version(model.getVersion())
-				.contact(new Contact("Yadnyesh Bharat Juvekar", "yotabyte.io", "yadnyesh.juvekar@gmail.com"))
+				.contact(new Contact("Yadnyesh Bharat Juvekar", "yotabyte.io", "yadnyesh.juvekar@gmail.com"));
 		return new Docket(DocumentationType.SWAGGER_2).select()
 				.apis(RequestHandlerSelectors.basePackage("io.yadnyesh.springcloud.controller"))
 				.paths(PathSelectors.any()).build()
