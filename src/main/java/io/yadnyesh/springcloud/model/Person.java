@@ -8,4 +8,15 @@ public class Person {
 	private String lastName;
 	private int age;
 	private Gender gender;
+	
+	public Person() {
+	}
+	
+	public Person(Long id, String firstName, String lastName, int age, Gender gender) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.gender = gender;
+	}
 }
