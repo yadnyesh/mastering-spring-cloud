@@ -1,8 +1,15 @@
 package io.yadnyesh.springcloud.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PersonCounterService {
-
+	private final CounterService counterService;
+	
+	@Autowired
+	public PersonCounterService(CounterService counterService) {
+		this.counterService = counterService;
+	}
 }
