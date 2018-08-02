@@ -1,6 +1,8 @@
 package io.yadnyesh.springcloud.controller;
 
 import io.yadnyesh.springcloud.model.Person;
+import io.yadnyesh.springcloud.service.PersonCounterService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -10,6 +12,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
+	
+	@Autowired
+	PersonCounterService personCounterService;
+	
 	private List<Person> personList = new ArrayList<>();
 	
 	@GetMapping
@@ -26,6 +32,7 @@ public class PersonController {
 	public Person addPerson(@RequestBody Person person) {
 		person.setId((long) personList.size()+1);
 		personList.add(person);
+		personCounterService.countNewPersons();
 		return person;
 	}
 	
@@ -33,6 +40,7 @@ public class PersonController {
 	public void deletePerson(@RequestParam("id") Long existingId){
 		List<Person> personToBeDeleted = personList.stream().filter(person -> person.getId().equals(existingId)).collect(Collectors.toList());
 		personList.removeAll(personToBeDeleted);
+		personCounterService.countDeletedPersons();
 	}
 	
 	@PutMapping
