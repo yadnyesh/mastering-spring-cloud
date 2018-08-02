@@ -12,4 +12,12 @@ public class PersonCounterService {
 	public PersonCounterService(CounterService counterService) {
 		this.counterService = counterService;
 	}
+	
+	public void countNewPersons() {
+		this.counterService.increment("services.person.add");
+	}
+	
+	public void countDeletedPersons() {
+		this.counterService.increment("services.person.deleted");
+	}
 }
