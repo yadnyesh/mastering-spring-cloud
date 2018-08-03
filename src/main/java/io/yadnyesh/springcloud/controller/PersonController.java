@@ -32,6 +32,7 @@ public class PersonController {
 		return personRepository.findOne(id);
 	}
 	
+	@GetMapping("/{lastName}")
 	public List<Person> getPersonByLastName(@RequestParam("lastName") String lastName) {
 		return personRepository.findByLastName(lastName);
 	}
