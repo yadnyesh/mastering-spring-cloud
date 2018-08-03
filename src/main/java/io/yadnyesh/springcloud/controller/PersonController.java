@@ -32,6 +32,10 @@ public class PersonController {
 		return personRepository.findOne(id);
 	}
 	
+	public List<Person> getPersonByLastName(@RequestParam("lastName") String lastName) {
+		return personRepository.findByLastName(lastName);
+	}
+	
 	@PostMapping
 	public Person addPerson(@RequestBody Person person) {
 		personRepository.save(person);
