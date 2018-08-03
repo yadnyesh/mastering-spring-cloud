@@ -3,7 +3,7 @@ package io.yadnyesh.springcloud.model;
 import io.yadnyesh.springcloud.constant.Gender;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "person")
 public class Person {
 	private Long id;
 	private String firstName;
