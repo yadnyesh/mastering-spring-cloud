@@ -1,11 +1,14 @@
 package io.yadnyesh.springcloud.model;
 
 import io.yadnyesh.springcloud.constant.Gender;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "person")
 public class Person {
-	private Long id;
+	
+	@Id
+	private String id;
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -14,7 +17,7 @@ public class Person {
 	public Person() {
 	}
 	
-	public Person(Long id, String firstName, String lastName, int age, Gender gender) {
+	public Person(String id, String firstName, String lastName, int age, Gender gender) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -22,11 +25,11 @@ public class Person {
 		this.gender = gender;
 	}
 	
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 	
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
