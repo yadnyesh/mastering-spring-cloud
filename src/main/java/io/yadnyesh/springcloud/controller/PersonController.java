@@ -24,7 +24,7 @@ public class PersonController {
 	
 	@GetMapping
 	public List<Person> getAllPersons(){
-		return personList;
+		return personRepository.findAll();
 	}
 	
 	@GetMapping("/{id")
