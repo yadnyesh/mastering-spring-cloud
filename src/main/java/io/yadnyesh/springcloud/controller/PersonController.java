@@ -36,6 +36,11 @@ public class PersonController {
 		return personRepository.findByLastName(lastName);
 	}
 	
+	@GetMapping("/{age}")
+	public List<Person> getPersonByAge(@RequestParam("age") int age) {
+		personRepository.findByAgeGreaterThan(age);
+	}
+	
 	@PostMapping
 	public Person addPerson(@RequestBody Person person) {
 		personRepository.save(person);
