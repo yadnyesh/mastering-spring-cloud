@@ -30,7 +30,7 @@ public class PersonController {
 	
 	@PostMapping
 	public Person addPerson(@RequestBody Person person) {
-		person.setId((long) personList.size()+1);
+		//person.setId((long) personList.size()+1);
 		personList.add(person);
 		personCounterService.countNewPersons();
 		return person;
