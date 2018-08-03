@@ -6,3 +6,7 @@ logging:
 management:
   security:
     enabled: false
+spring:
+  devtools:
+    restart:
+      exclude: static/**
