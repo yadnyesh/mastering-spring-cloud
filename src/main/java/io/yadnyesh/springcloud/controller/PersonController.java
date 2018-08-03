@@ -39,7 +39,7 @@ public class PersonController {
 	
 	@GetMapping("/{age}")
 	public List<Person> getPersonByAge(@RequestParam("age") int age) {
-		personRepository.findByAgeGreaterThan(age);
+		return personRepository.findByAgeGreaterThan(age);
 	}
 	
 	@PostMapping
