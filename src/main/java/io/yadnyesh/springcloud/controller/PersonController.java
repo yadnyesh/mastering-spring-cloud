@@ -1,6 +1,7 @@
 package io.yadnyesh.springcloud.controller;
 
 import io.yadnyesh.springcloud.model.Person;
+import io.yadnyesh.springcloud.repository.PersonRepository;
 import io.yadnyesh.springcloud.service.PersonCounterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
+	
+	@Autowired
+	PersonRepository personRepository;
 	
 	@Autowired
 	PersonCounterService personCounterService;
