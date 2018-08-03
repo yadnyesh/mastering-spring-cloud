@@ -10,3 +10,36 @@ spring:
   devtools:
     restart:
       exclude: static/**
+  data:
+    mongodb:
+      host: 10.63.161.193
+      port: 27017
+      database: admin
+      username: yadnyesh
+      password: yadnyesh
+
+---
+
+spring:
+  profiles: production
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration
+  logging:
+    pattern:
+      console: "%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"
+    level:
+      org.springframework.web: DEBUG
+  management:
+    security:
+      enabled: false
+  spring:
+    devtools:
+      restart:
+        exclude: static/**
+    data:
+      mongodb:
+        host: 10.63.161.193
+        port: 27017
+        database: admin
+        username: yadnyesh
+        password: yadnyesh
