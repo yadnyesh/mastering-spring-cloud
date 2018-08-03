@@ -28,8 +28,8 @@ public class PersonController {
 	}
 	
 	@GetMapping("/{id")
-	public Person getPersonById(@RequestParam("id") Long id) {
-		return personList.stream().filter(person -> person.getId().equals(id)).findFirst().get();
+	public Person getPersonById(@RequestParam("id") String id) {
+		return personRepository.findOne(id);
 	}
 	
 	@PostMapping
