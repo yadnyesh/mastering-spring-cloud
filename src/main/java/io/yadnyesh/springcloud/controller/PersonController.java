@@ -40,9 +40,8 @@ public class PersonController {
 	}
 	
 	@DeleteMapping
-	public void deletePerson(@RequestParam("id") Long existingId){
-		List<Person> personToBeDeleted = personList.stream().filter(person -> person.getId().equals(existingId)).collect(Collectors.toList());
-		personList.removeAll(personToBeDeleted);
+	public void deletePerson(@RequestParam("id") String existingId){
+		personRepository.delete(existingId);
 		personCounterService.countDeletedPersons();
 	}
 	
