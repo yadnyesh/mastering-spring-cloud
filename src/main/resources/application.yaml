@@ -40,6 +40,6 @@ spring:
       mongodb:
         host: 10.63.161.193
         port: 27017
-        database: admin
+        database: sbcloud
         username: yadnyesh
         password: yadnyesh
